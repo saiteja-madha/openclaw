@@ -3,6 +3,13 @@ import './Hero.css'
 
 function Hero() {
   const heroRef = useRef(null)
+  
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
 
   useEffect(() => {
     // Add animation delay for staggered entrance
@@ -12,10 +19,7 @@ function Hero() {
     })
   }, [])
 
-  const scrollToProjects = () => {
-    // Placeholder for future projects section
-    console.log('Scrolling to projects...')
-  }
+  
 
   return (
     <section ref={heroRef} className="hero">
@@ -43,7 +47,7 @@ function Hero() {
           <div className="hero__ctas animate-in">
             <button 
               className="hero__cta hero__cta--primary"
-              onClick={scrollToProjects}
+              onClick={() => scrollToSection('projects')}
             >
               View My Work
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
